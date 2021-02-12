@@ -9,3 +9,5 @@ See the project in action here https://jrafaaael.github.io/password-generator-an
 2.1 **Changing similar names in variables:** Similar variable names changed in clipboard.js file.
 
 2.2 **Fixed styles in mobile view:** Content in main section was overflowing in mobile view.
+
+3.1 **Effects at the removing all passwords:** Sound and animation effect when removing all passwords.
