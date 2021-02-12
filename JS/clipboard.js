@@ -9,7 +9,7 @@ const clipboard = document.getElementById('clipboard');
 const clipboardInner = clipboard.querySelector('.container');
 const closeClipboard = clipboard.querySelector('#close');
 const copyBtn = document.getElementById('copy');
-const removePasswords = document.getElementById('remove-all');
+const removeAllBtn = document.getElementById('remove-all');
 const passwordList = document.getElementById('clipboard-list');
 
 // Code
@@ -40,7 +40,7 @@ clipboardInner.addEventListener('click', e => {
             break;
         }
         case 'BUTTON': {
-            if (!removePassword(element)) removePasswords.disabled = true;
+            if (!removePassword(element)) removeAllBtn.disabled = true;
             break;
         }
     }
@@ -49,19 +49,19 @@ clipboardInner.addEventListener('click', e => {
 copyBtn.addEventListener('click', () => {
     copyToClipboard();
     showMesage(copyBtn);
-    removePasswords.disabled = false;
+    removeAllBtn.disabled = false;
 }, false);
 
-removePasswords.addEventListener('click', () => {
+removeAllBtn.addEventListener('click', () => {
     localStorage.clear();
     while (passwordList.firstElementChild)
         passwordList.firstElementChild.remove();
-    showMesage(removePasswords);
-    removePasswords.disabled = true;
+    showMesage(removeAllBtn);
+    removeAllBtn.disabled = true;
 }, false);
 
 window.addEventListener('DOMContentLoaded', () => {
-    if (!render()) removePasswords.disabled = true;
+    if (!render()) removeAllBtn.disabled = true;
 }, false);
 
 // Export
