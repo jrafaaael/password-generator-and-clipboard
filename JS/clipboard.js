@@ -3,6 +3,7 @@ import { copyToClipboard } from "./clipboard_section/copy.js";
 import { removePassword } from "./clipboard_section/remove_password.js";
 import { render } from "./clipboard_section/render.js";
 import { showMesage } from "./clipboard_section/show_message.js";
+import { playRemoveSound } from "./clipboard_section/sound.js";
 
 // Variables
 const clipboard = document.getElementById('clipboard');
@@ -41,6 +42,7 @@ clipboardInner.addEventListener('click', e => {
         }
         case 'BUTTON': {
             if (!removePassword(element)) removeAllBtn.disabled = true;
+            playRemoveSound();
             break;
         }
     }
@@ -53,9 +55,9 @@ copyBtn.addEventListener('click', () => {
 }, false);
 
 removeAllBtn.addEventListener('click', () => {
-    localStorage.clear();
-    while (passwordList.firstElementChild)
-        passwordList.firstElementChild.remove();
+    const allPasswords = passwordList.querySelectorAll('.remove-password');
+    allPasswords.forEach(password => removePassword(password));
+    playRemoveSound();
     showMesage(removeAllBtn);
     removeAllBtn.disabled = true;
 }, false);
