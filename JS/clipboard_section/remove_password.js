@@ -1,9 +1,6 @@
 // Imports
 import { getLocalStorage, setLocalStorage } from "../local_storage/local_storage_functions.js";
 
-// Variables
-const audio = document.querySelector('audio');
-
 // Functions
 const removeFromLocalStorage = (element) => {
     const passwordToRemove = element.previousElementSibling.textContent;
@@ -16,14 +13,9 @@ const removeFromLocalStorage = (element) => {
     if (passwords.length > 0) return true;
 }
 
-const playRemoveSound = () => {
-    audio.play();
-}
-
 // Exports
 export const removePassword = (element) => {
     element.parentNode.classList.add('removed');
-    playRemoveSound();
     element.parentNode.addEventListener('animationend', () => {
         element.parentNode.remove();
     }, false);
