@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Share+Tech+Mono&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --darkBlueColor: #1a2037;
+    --lightBlueColor: #3a97d4;
+    --blueHoverColor: #48b6ff;
+    --darkHoverColor: #23316b;
+    --lightColor: rgba(255, 255, 255, 0.15);
+    --disabledColor: rgba(255, 255, 255, 0.2);
+}
+
+html,
+body,
+main {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    letter-spacing: 0.075rem;
+}
+
+.title {
+    font-size: clamp(2rem, 3.5vw, 2.55rem);
+}
+
+button,
+textarea {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    font-family: "Share Tech Mono", "Poppins", sans-serif;
+    font-size: 1.15rem;
+    resize: none;
+    overflow: hidden;
+}
+
+button:disabled,
+input[type="checkbox"]:disabled + div {
+    cursor: not-allowed;
+}
+
+svg {
+    width: 30px;
+    display: block;
+}
+
+#generator p,
+#generate,
+#remove-all {
+    font-size: 1.075rem;
+}
+
+#generator #generate,
+#clipboard #remove-all {
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 250ms ease;
+}
+
+#copy,
+#remove-all,
+#clipboard li {
+    position: relative;
+}
+
+#copy::after,
+#remove-all::after,
+#clipboard li::after {
+    width: fit-content;
+    font-size: 0.5rem;
+    font-weight: 600;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 250ms ease;
+    transform: scale(0);
+}
+
+#copy::after,
+#remove-all::after {
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+}
+
+#copy.show::after,
+#remove-all.show::after,
+#clipboard li.show::after {
+    font-size: 0.8rem;
+    opacity: 1;
+    transform: scale(1);
+}
+
+#copy.show::after,
+#remove-all.show::after {
+    transform: translateX(-50%) scale(1);
+}

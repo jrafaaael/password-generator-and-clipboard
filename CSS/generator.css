@@ -1,0 +1,152 @@
+#generator {
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+    background-color: var(--darkBlueColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#generator * {
+    color: snow;
+}
+
+#generator .container {
+    width: 100%;
+}
+
+#generator .title {
+    color: var(--lightBlueColor);
+    text-align: center;
+}
+
+.result {
+    width: 100%;
+    max-width: 512px;
+    margin: 1rem auto 2rem auto;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#copy::after {
+    content: 'Copied';
+    bottom: 0;
+}
+
+#copy.show::after {
+    bottom: 40px;
+    transition: bottom 250ms ease;
+}
+
+#copy:hover svg path {
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: animate 1s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards;
+}
+
+#copy:hover svg path:nth-child(2) {
+    animation-duration: 0.75s;
+}
+
+#copy:hover svg path:nth-child(3) {
+    animation-timing-function: ease-in;
+    animation-delay: 0.85s;
+}
+
+@keyframes animate {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#copy:disabled svg path {
+    stroke: var(--disabledColor);
+    stroke-dasharray: initial;
+    stroke-dashoffset: initial;
+    animation: none;
+}
+
+#pass-result {
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+}
+
+#generator .result * {
+    margin-left: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    width: 100%;
+    max-width: 450px;
+}
+
+label:not(:first-of-type) {
+    margin-top: 0.75rem;
+    cursor: pointer;
+}
+
+.result,
+label,
+label div {
+    background-color: var(--lightColor);
+    border-radius: 5px;
+}
+
+label div input[type="range"] {
+    cursor: grab;
+}
+
+label div input[type="range"]:active {
+    cursor: grabbing;
+}
+
+form label,
+.length-range {
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pass-length {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+#pass-length span {
+    font-weight: normal;
+}
+
+label[for="length"] {
+    padding: 0;
+    background-color: transparent;
+    display: block;
+}
+
+input[type="range"] {
+    width: 75%;
+}
+
+#generate {
+    width: fit-content;
+    margin: auto;
+    margin-top: 1.5rem;
+    background-color: var(--lightBlueColor);
+    color: black;
+    display: inline-block;
+}
+
+#generate:hover {
+    background-color: var(--blueHoverColor);
+}

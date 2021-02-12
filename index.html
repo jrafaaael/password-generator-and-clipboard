@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="./CSS/generator.css">
+    <link rel="stylesheet" href="./CSS/clipboard.css">
+    <link rel="stylesheet" href="./CSS/checkbox.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/media_queries.css">
+</head>
+
+<body>
+    <main>
+        <section id="clipboard">
+            <div class="container">
+                <div id="close"></div>
+                <h2 class="title">Clipboard</h2>
+                <ul id="clipboard-list"></ul>
+                <button id="remove-all">Remove all passwords</button>
+            </div>
+        </section>
+        <section id="generator">
+            <div class="container">
+                <h2 class="title">Password Generator</h2>
+                <div class="result">
+                    <textarea id="pass-result" readonly rows="1"></textarea>
+                    <button id="copy" disabled>
+                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M41.73 25.9629C42.4703 25.2671 43.4494 24.8778 44.4689 24.8777L57.9995 24.8762C60.2089 24.876 62 26.6669 62 28.8762L62 62.8761C62 65.0853 60.2091 66.8761 58 66.8761H34C31.7909 66.8761 30 65.0853 30 62.8761V39.4459C30 38.4291 30.3871 37.4521 31.0801 36.712"
+                                stroke="snow" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.25" />
+                            <path
+                                d="M30 54.8758H22C19.7909 54.8758 18 53.0849 18 50.8758L18 16.8759C18 14.6665 19.7911 12.8756 22.0004 12.8759L45.9993 12.8761C48.2087 12.8757 50 14.6667 50 16.8761V24.8767"
+                                stroke="snow" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.25" />
+                            <path
+                                d="M31.1262 36.6605L41.6635 26.0218C42.0812 25.6001 42.8002 25.8965 42.8002 26.4901V33.7979C42.8002 36.007 41.0093 37.7979 38.8002 37.7979H31.6002C31.0073 37.7979 30.7089 37.0818 31.1262 36.6605Z"
+                                stroke="snow" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.25" />
+                        </svg>
+                    </button>
+                </div>
+                <form id="configuration">
+                    <label for="length">
+                        <p id="pass-length">Length: <span></span></p>
+
+                        <div class="length-range">
+                            <p class="range">4</p>
+                            <input type="range" name="length" id="length" min="4" max="40">
+                            <p class="range">40</p>
+                        </div>
+                    </label>
+                    <label for="lowercase" class="toggleButton">
+                        <p class="answ">Include Lowercase?</p>
+                        <input type="checkbox" name="lowercase" id="lowercase" checked>
+                        <div>
+                            <svg viewBox="0 0 44 44">
+                                <path
+                                    d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+                                    transform="translate(-2.000000, -2.000000)"></path>
+                            </svg>
+                        </div>
+                    </label>
+                    <label for="numbers" class="toggleButton">
+                        <p class="answ">Include Numbers?</p>
+                        <input type="checkbox" name="numbers" id="numbers" checked>
+                        <div>
+                            <svg viewBox="0 0 44 44">
+                                <path
+                                    d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+                                    transform="translate(-2.000000, -2.000000)"></path>
+                            </svg>
+                        </div>
+                    </label>
+                    <label for="symbols" class="toggleButton">
+                        <p class="answ">Include Symbols?</p>
+                        <input type="checkbox" name="symbols" id="symbols" checked>
+                        <div>
+                            <svg viewBox="0 0 44 44">
+                                <path
+                                    d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+                                    transform="translate(-2.000000, -2.000000)"></path>
+                            </svg>
+                        </div>
+                    </label>
+                    <label for="uppercase" class="toggleButton">
+                        <p class="answ">Include Uppercase?</p>
+                        <input type="checkbox" name="uppercase" id="uppercase" checked>
+                        <div>
+                            <svg viewBox="0 0 44 44">
+                                <path
+                                    d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+                                    transform="translate(-2.000000, -2.000000)"></path>
+                            </svg>
+                        </div>
+                    </label>
+                    <button id="generate">Generate Password</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <audio>
+        <source src="./media/audio/remove.wav" type="audio/wav">
+        <source src="./media/audio/remove.mp3" type="audio/mp3">
+    </audio>
+    <template>
+        <li>
+            <textarea readonly rows="1"></textarea>
+            <button class="remove-password">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash"
+                    class="svg-inline--fa fa-trash fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path fill="currentColor"
+                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                    </path>
+                </svg>
+            </button>
+        </li>
+    </template>
+    <script src="./JS/generator.js" type="module"></script>
+    <script src="./JS/clipboard.js" type="module"></script>
+</body>
+
+</html>

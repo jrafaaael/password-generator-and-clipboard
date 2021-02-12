@@ -1,0 +1,191 @@
+/* Thanks to Aaron Iker for this cool checkbox effect!
+https://codepen.io/aaroniker/pen/rZPeYQ */
+
+.toggleButton input {
+    display: none;
+}
+.toggleButton input + div {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: relative;
+    width: 22px;
+    height: 22px;
+}
+.toggleButton input + div svg {
+    fill: none;
+    stroke-width: 3.6;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 22px;
+    height: 22px;
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: 1;
+    stroke-dashoffset: 124.6;
+    stroke-dasharray: 0 162.6 133 29.6;
+    transition: all 0.4s ease 0s;
+}
+
+.toggleButton input:disabled + div svg {
+    stroke: rgba(255, 255, 255, 0.2);
+}
+
+.toggleButton input + div:before,
+.toggleButton input + div:after {
+    content: "";
+    width: 3px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 5px;
+}
+.toggleButton input + div:before {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    -webkit-animation: bounceInBefore 0.3s linear forwards 0.3s;
+    animation: bounceInBefore 0.3s linear forwards 0.3s;
+}
+.toggleButton input + div:after {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    -webkit-animation: bounceInAfter 0.3s linear forwards 0.3s;
+    animation: bounceInAfter 0.3s linear forwards 0.3s;
+}
+.toggleButton input:checked + div svg {
+    stroke-dashoffset: 162.6;
+    stroke-dasharray: 0 162.6 28 134.6;
+    transition: all 0.4s ease 0.2s;
+}
+.toggleButton input:checked + div:before {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    -webkit-animation: bounceInBeforeDont 0.3s linear forwards 0s;
+    animation: bounceInBeforeDont 0.3s linear forwards 0s;
+}
+.toggleButton input:checked + div:after {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    -webkit-animation: bounceInAfterDont 0.3s linear forwards 0s;
+    animation: bounceInAfterDont 0.3s linear forwards 0s;
+}
+
+@-webkit-keyframes bounceInBefore {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes bounceInBefore {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(45deg);
+    }
+}
+@-webkit-keyframes bounceInAfter {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+    }
+}
+@keyframes bounceInAfter {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+    }
+}
+@-webkit-keyframes bounceInBeforeDont {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    }
+}
+@keyframes bounceInBeforeDont {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+    }
+}
+@-webkit-keyframes bounceInAfterDont {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    }
+}
+@keyframes bounceInAfterDont {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+    }
+}
